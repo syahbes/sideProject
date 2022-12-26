@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Main from "./src/screens/Main";
+import Secondary from "./src/screens/Secondary";
+import CustomHeader from "./src/components/CustomHeader";
+import { Button } from "react-native";
 
-export default function App() {
+
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Main"
+        screenOptions={{
+          // headerTitle: "CustomHeader",
+          headerTitle: "",
+          headerTitleAlign: "center",
+          // headerStyle: {
+          //   backgroundColor: "#000",
+          //   height: 150,
+          //   borderBottomRightRadius: 20,
+          //   borderBottomLeftRadius: 20,
+          // },
+          headerBackground: CustomHeader,
+          headerLeft: "",
+        }}
+      >
+        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen
+          name="Secondary"
+          component={Secondary}
+          options={({ route }) => ({ title: route.params.test })}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
