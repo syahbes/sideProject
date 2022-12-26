@@ -1,7 +1,8 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 //Platform,
 
-export default function CustomHeader() {  return (
+export default function CustomHeader() {  
+  return (
     <View style={styles.avatarContainer}>
       <Image
         style={styles.avatar}
@@ -19,20 +20,18 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
-    marginTop: 70,
+    alignItems: "center",  
     marginBottom: 10,
   },
   avatar: {
     width: 80,
     height: 80,
     borderRadius: 40,
-    // borderColor: "#d0b581",
     border: "1px solid #d0b581",
+    marginTop: 120,
   },
   avatarText: {
     fontSize: 16,
-    fontWeight: "500",
   },
 });
 

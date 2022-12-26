@@ -1,11 +1,11 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import Main from "./src/screens/Main";
 import Secondary from "./src/screens/Secondary";
 import BackGround from "./src/components/BackGround";
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 function App() {
   return (
@@ -30,9 +30,7 @@ function App() {
             headerLeft: route.params.headerLeft,
             headerTitle: route.params.headerTitle,
             headerRight: route.params.headerRight,
-            headerStyle: {
-              height: 170,
-            },
+            
           })}
         />
       </Stack.Navigator>
